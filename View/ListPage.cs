@@ -1,0 +1,2 @@
+public class ListPage : PresentationModel{
+}
