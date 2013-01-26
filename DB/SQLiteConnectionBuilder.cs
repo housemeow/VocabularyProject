@@ -24,14 +24,14 @@ namespace SQLiteCon
         {
             CreateUnexistDBFile();
             DbConnection cnn = dbProviderFactory.CreateConnection();
-            cnn.ConnectionString = "Data Source=db/db.s3db";
+            cnn.ConnectionString = "Data Source=db/vocabulary.s3db";
             return cnn;
         }
 
         public static SQLiteConnection GetSQLiteConnection()
         {
             CreateUnexistDBFile();
-            SQLiteConnection sqliteConnection = new SQLiteConnection("Data Source=db/db.s3db");
+            SQLiteConnection sqliteConnection = new SQLiteConnection("Data Source=db/vocabulary.s3db");
             return sqliteConnection;
         }
 
@@ -45,10 +45,10 @@ namespace SQLiteCon
                 Directory.CreateDirectory("db");
             }
             //檔案不存在時就建立
-            if (!File.Exists("db/db.s3db"))
+            if (!File.Exists("db/vocabulary.s3db"))
             {
                 //自動建立SQLite檔案
-                SQLiteConnection.CreateFile("db/db.s3db");
+                SQLiteConnection.CreateFile("db/vocabulary.s3db");
             }
         }
     }

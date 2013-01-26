@@ -9,4 +9,11 @@ public class PresentationModel
             _modelChange();
         }
     }
+
+    public PresentationModel(VocabularyModel vocabularyModel)
+    {
+        _vocabularyModel = vocabularyModel;
+    }
+
+    protected VocabularyModel _vocabularyModel;
 }

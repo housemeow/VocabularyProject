@@ -35,6 +35,17 @@
             this._tabPageViewVocabularies = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._dataGridViewVocabularies = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vocabularyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addDateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chineseExplanationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.englishExplanationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chineseExampleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correctTimesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guessTimesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correctPercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._bindingSourceVocabularyList = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this._buttonDelete = new System.Windows.Forms.Button();
             this._buttonModify = new System.Windows.Forms.Button();
@@ -52,6 +63,8 @@
             this._textBoxAddEnglishExample = new System.Windows.Forms.TextBox();
             this._textBoxAddChineseExample = new System.Windows.Forms.TextBox();
             this._buttonAddSubmit = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this._textBoxAddComment = new System.Windows.Forms.TextBox();
             this._tabPageModifyVocabulary = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,43 +79,29 @@
             this._textBoxModifyEnglishExample = new System.Windows.Forms.TextBox();
             this._textBoxModifyChineseExample = new System.Windows.Forms.TextBox();
             this._buttonModifySubmit = new System.Windows.Forms.Button();
-            this._dataGridViewSelectVocabulary = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
-            this._textBoxVocabularyFilter = new System.Windows.Forms.TextBox();
-            this.tabPageConfiguration = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this._textBoxAddComment = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this._textBoxModifyComment = new System.Windows.Forms.TextBox();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vocabularyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addDateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chineseExplanationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.englishExplanationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exampleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chineseExampleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correctTimesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guessTimesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correctPercentageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this._dataGridViewSelectVocabulary = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vocabularyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addDateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chineseExplanationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.englishExplanationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exampleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chineseExampleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correctTimesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guessTimesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correctPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this._textBoxVocabularyFilter = new System.Windows.Forms.TextBox();
+            this.tabPageConfiguration = new System.Windows.Forms.TabPage();
             this._tabControlMainForm.SuspendLayout();
             this._tabPageWelcome.SuspendLayout();
             this._tabPageViewVocabularies.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewVocabularies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceVocabularyList)).BeginInit();
             this.panel1.SuspendLayout();
             this._tabPageAddVocabulary.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -190,13 +189,12 @@
             this.addDateTimeDataGridViewTextBoxColumn1,
             this.chineseExplanationDataGridViewTextBoxColumn1,
             this.englishExplanationDataGridViewTextBoxColumn1,
-            this.exampleDataGridViewTextBoxColumn1,
             this.chineseExampleDataGridViewTextBoxColumn1,
             this.correctTimesDataGridViewTextBoxColumn1,
             this.guessTimesDataGridViewTextBoxColumn1,
             this.correctPercentageDataGridViewTextBoxColumn1,
             this.commentDataGridViewTextBoxColumn1});
-            this._dataGridViewVocabularies.DataSource = this.bindingSource1;
+            this._dataGridViewVocabularies.DataSource = this._bindingSourceVocabularyList;
             this._dataGridViewVocabularies.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewVocabularies.Location = new System.Drawing.Point(3, 3);
             this._dataGridViewVocabularies.Name = "_dataGridViewVocabularies";
@@ -234,12 +232,6 @@
             this.englishExplanationDataGridViewTextBoxColumn1.HeaderText = "英文解釋";
             this.englishExplanationDataGridViewTextBoxColumn1.Name = "englishExplanationDataGridViewTextBoxColumn1";
             // 
-            // exampleDataGridViewTextBoxColumn1
-            // 
-            this.exampleDataGridViewTextBoxColumn1.DataPropertyName = "Example";
-            this.exampleDataGridViewTextBoxColumn1.HeaderText = "例句";
-            this.exampleDataGridViewTextBoxColumn1.Name = "exampleDataGridViewTextBoxColumn1";
-            // 
             // chineseExampleDataGridViewTextBoxColumn1
             // 
             this.chineseExampleDataGridViewTextBoxColumn1.DataPropertyName = "ChineseExample";
@@ -270,16 +262,15 @@
             this.commentDataGridViewTextBoxColumn1.HeaderText = "備註";
             this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
             // 
-            // bindingSource1
+            // _bindingSourceVocabularyList
             // 
-            this.bindingSource1.DataSource = typeof(VocabularyData);
+            this._bindingSourceVocabularyList.DataSource = typeof(VocabularyData);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this._buttonDelete);
             this.panel1.Controls.Add(this._buttonModify);
             this.panel1.Controls.Add(this._buttonCancel);
-
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 261);
             this.panel1.Name = "panel1";
@@ -476,6 +467,29 @@
             this._buttonAddSubmit.TabIndex = 10;
             this._buttonAddSubmit.Text = "Submit";
             this._buttonAddSubmit.UseVisualStyleBackColor = true;
+            this._buttonAddSubmit.Click += new System.EventHandler(this.ClickAddSubmitButton);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(46, 285);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 12);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Comment";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _textBoxAddComment
+            // 
+            this._textBoxAddComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._textBoxAddComment.Location = new System.Drawing.Point(110, 270);
+            this._textBoxAddComment.Margin = new System.Windows.Forms.Padding(10, 5, 20, 5);
+            this._textBoxAddComment.Multiline = true;
+            this._textBoxAddComment.Name = "_textBoxAddComment";
+            this._textBoxAddComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._textBoxAddComment.Size = new System.Drawing.Size(564, 43);
+            this._textBoxAddComment.TabIndex = 12;
             // 
             // _tabPageModifyVocabulary
             // 
@@ -657,6 +671,28 @@
             this._buttonModifySubmit.Text = "Submit";
             this._buttonModifySubmit.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(46, 126);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 12);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Comment";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _textBoxModifyComment
+            // 
+            this._textBoxModifyComment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._textBoxModifyComment.Location = new System.Drawing.Point(110, 123);
+            this._textBoxModifyComment.Margin = new System.Windows.Forms.Padding(10, 3, 20, 3);
+            this._textBoxModifyComment.Multiline = true;
+            this._textBoxModifyComment.Name = "_textBoxModifyComment";
+            this._textBoxModifyComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._textBoxModifyComment.Size = new System.Drawing.Size(552, 18);
+            this._textBoxModifyComment.TabIndex = 12;
+            // 
             // _dataGridViewSelectVocabulary
             // 
             this._dataGridViewSelectVocabulary.AutoGenerateColumns = false;
@@ -667,19 +703,78 @@
             this.addDateTimeDataGridViewTextBoxColumn,
             this.chineseExplanationDataGridViewTextBoxColumn,
             this.englishExplanationDataGridViewTextBoxColumn,
-            this.exampleDataGridViewTextBoxColumn,
             this.chineseExampleDataGridViewTextBoxColumn,
             this.correctTimesDataGridViewTextBoxColumn,
             this.guessTimesDataGridViewTextBoxColumn,
             this.correctPercentageDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn});
-            this._dataGridViewSelectVocabulary.DataSource = this.bindingSource1;
+            this._dataGridViewSelectVocabulary.DataSource = this._bindingSourceVocabularyList;
             this._dataGridViewSelectVocabulary.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewSelectVocabulary.Location = new System.Drawing.Point(6, 6);
             this._dataGridViewSelectVocabulary.Name = "_dataGridViewSelectVocabulary";
             this._dataGridViewSelectVocabulary.RowTemplate.Height = 24;
             this._dataGridViewSelectVocabulary.Size = new System.Drawing.Size(682, 137);
             this._dataGridViewSelectVocabulary.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "編號";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // vocabularyDataGridViewTextBoxColumn
+            // 
+            this.vocabularyDataGridViewTextBoxColumn.DataPropertyName = "Vocabulary";
+            this.vocabularyDataGridViewTextBoxColumn.HeaderText = "單字";
+            this.vocabularyDataGridViewTextBoxColumn.Name = "vocabularyDataGridViewTextBoxColumn";
+            // 
+            // addDateTimeDataGridViewTextBoxColumn
+            // 
+            this.addDateTimeDataGridViewTextBoxColumn.DataPropertyName = "AddDateTime";
+            this.addDateTimeDataGridViewTextBoxColumn.HeaderText = "加入時間";
+            this.addDateTimeDataGridViewTextBoxColumn.Name = "addDateTimeDataGridViewTextBoxColumn";
+            // 
+            // chineseExplanationDataGridViewTextBoxColumn
+            // 
+            this.chineseExplanationDataGridViewTextBoxColumn.DataPropertyName = "ChineseExplanation";
+            this.chineseExplanationDataGridViewTextBoxColumn.HeaderText = "中文解釋";
+            this.chineseExplanationDataGridViewTextBoxColumn.Name = "chineseExplanationDataGridViewTextBoxColumn";
+            // 
+            // englishExplanationDataGridViewTextBoxColumn
+            // 
+            this.englishExplanationDataGridViewTextBoxColumn.DataPropertyName = "EnglishExplanation";
+            this.englishExplanationDataGridViewTextBoxColumn.HeaderText = "英文解釋";
+            this.englishExplanationDataGridViewTextBoxColumn.Name = "englishExplanationDataGridViewTextBoxColumn";
+            // 
+            // chineseExampleDataGridViewTextBoxColumn
+            // 
+            this.chineseExampleDataGridViewTextBoxColumn.DataPropertyName = "ChineseExample";
+            this.chineseExampleDataGridViewTextBoxColumn.HeaderText = "例句中文解釋";
+            this.chineseExampleDataGridViewTextBoxColumn.Name = "chineseExampleDataGridViewTextBoxColumn";
+            // 
+            // correctTimesDataGridViewTextBoxColumn
+            // 
+            this.correctTimesDataGridViewTextBoxColumn.DataPropertyName = "CorrectTimes";
+            this.correctTimesDataGridViewTextBoxColumn.HeaderText = "答對次數";
+            this.correctTimesDataGridViewTextBoxColumn.Name = "correctTimesDataGridViewTextBoxColumn";
+            // 
+            // guessTimesDataGridViewTextBoxColumn
+            // 
+            this.guessTimesDataGridViewTextBoxColumn.DataPropertyName = "GuessTimes";
+            this.guessTimesDataGridViewTextBoxColumn.HeaderText = "猜測次數";
+            this.guessTimesDataGridViewTextBoxColumn.Name = "guessTimesDataGridViewTextBoxColumn";
+            // 
+            // correctPercentageDataGridViewTextBoxColumn
+            // 
+            this.correctPercentageDataGridViewTextBoxColumn.DataPropertyName = "CorrectPercentage";
+            this.correctPercentageDataGridViewTextBoxColumn.HeaderText = "正確率";
+            this.correctPercentageDataGridViewTextBoxColumn.Name = "correctPercentageDataGridViewTextBoxColumn";
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "備註";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             // 
             // tableLayoutPanel5
             // 
@@ -727,186 +822,6 @@
             this.tabPageConfiguration.Text = "Configuration";
             this.tabPageConfiguration.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 285);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 12);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Comment";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _textBoxAddComment
-            // 
-            this._textBoxAddComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._textBoxAddComment.Location = new System.Drawing.Point(110, 270);
-            this._textBoxAddComment.Margin = new System.Windows.Forms.Padding(10, 5, 20, 5);
-            this._textBoxAddComment.Multiline = true;
-            this._textBoxAddComment.Name = "_textBoxAddComment";
-            this._textBoxAddComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._textBoxAddComment.Size = new System.Drawing.Size(564, 43);
-            this._textBoxAddComment.TabIndex = 12;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(46, 126);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 12);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Comment";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _textBoxModifyComment
-            // 
-            this._textBoxModifyComment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._textBoxModifyComment.Location = new System.Drawing.Point(110, 123);
-            this._textBoxModifyComment.Margin = new System.Windows.Forms.Padding(10, 3, 20, 3);
-            this._textBoxModifyComment.Multiline = true;
-            this._textBoxModifyComment.Name = "_textBoxModifyComment";
-            this._textBoxModifyComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._textBoxModifyComment.Size = new System.Drawing.Size(552, 18);
-            this._textBoxModifyComment.TabIndex = 12;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "編號";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // vocabularyDataGridViewTextBoxColumn1
-            // 
-            this.vocabularyDataGridViewTextBoxColumn1.DataPropertyName = "Vocabulary";
-            this.vocabularyDataGridViewTextBoxColumn1.HeaderText = "單字";
-            this.vocabularyDataGridViewTextBoxColumn1.Name = "vocabularyDataGridViewTextBoxColumn1";
-            // 
-            // addDateTimeDataGridViewTextBoxColumn1
-            // 
-            this.addDateTimeDataGridViewTextBoxColumn1.DataPropertyName = "AddDateTime";
-            this.addDateTimeDataGridViewTextBoxColumn1.HeaderText = "加入時間";
-            this.addDateTimeDataGridViewTextBoxColumn1.Name = "addDateTimeDataGridViewTextBoxColumn1";
-            // 
-            // chineseExplanationDataGridViewTextBoxColumn1
-            // 
-            this.chineseExplanationDataGridViewTextBoxColumn1.DataPropertyName = "ChineseExplanation";
-            this.chineseExplanationDataGridViewTextBoxColumn1.HeaderText = "中文解釋";
-            this.chineseExplanationDataGridViewTextBoxColumn1.Name = "chineseExplanationDataGridViewTextBoxColumn1";
-            // 
-            // englishExplanationDataGridViewTextBoxColumn1
-            // 
-            this.englishExplanationDataGridViewTextBoxColumn1.DataPropertyName = "EnglishExplanation";
-            this.englishExplanationDataGridViewTextBoxColumn1.HeaderText = "英文解釋";
-            this.englishExplanationDataGridViewTextBoxColumn1.Name = "englishExplanationDataGridViewTextBoxColumn1";
-            // 
-            // exampleDataGridViewTextBoxColumn1
-            // 
-            this.exampleDataGridViewTextBoxColumn1.DataPropertyName = "Example";
-            this.exampleDataGridViewTextBoxColumn1.HeaderText = "例句";
-            this.exampleDataGridViewTextBoxColumn1.Name = "exampleDataGridViewTextBoxColumn1";
-            // 
-            // chineseExampleDataGridViewTextBoxColumn1
-            // 
-            this.chineseExampleDataGridViewTextBoxColumn1.DataPropertyName = "ChineseExample";
-            this.chineseExampleDataGridViewTextBoxColumn1.HeaderText = "例句中文解釋";
-            this.chineseExampleDataGridViewTextBoxColumn1.Name = "chineseExampleDataGridViewTextBoxColumn1";
-            // 
-            // correctTimesDataGridViewTextBoxColumn1
-            // 
-            this.correctTimesDataGridViewTextBoxColumn1.DataPropertyName = "CorrectTimes";
-            this.correctTimesDataGridViewTextBoxColumn1.HeaderText = "答對次數";
-            this.correctTimesDataGridViewTextBoxColumn1.Name = "correctTimesDataGridViewTextBoxColumn1";
-            // 
-            // guessTimesDataGridViewTextBoxColumn1
-            // 
-            this.guessTimesDataGridViewTextBoxColumn1.DataPropertyName = "GuessTimes";
-            this.guessTimesDataGridViewTextBoxColumn1.HeaderText = "猜測次數";
-            this.guessTimesDataGridViewTextBoxColumn1.Name = "guessTimesDataGridViewTextBoxColumn1";
-            // 
-            // correctPercentageDataGridViewTextBoxColumn1
-            // 
-            this.correctPercentageDataGridViewTextBoxColumn1.DataPropertyName = "CorrectPercentage";
-            this.correctPercentageDataGridViewTextBoxColumn1.HeaderText = "正確率";
-            this.correctPercentageDataGridViewTextBoxColumn1.Name = "correctPercentageDataGridViewTextBoxColumn1";
-            // 
-            // commentDataGridViewTextBoxColumn1
-            // 
-            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn1.HeaderText = "備註";
-            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(VocabularyData);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "編號";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // vocabularyDataGridViewTextBoxColumn
-            // 
-            this.vocabularyDataGridViewTextBoxColumn.DataPropertyName = "Vocabulary";
-            this.vocabularyDataGridViewTextBoxColumn.HeaderText = "單字";
-            this.vocabularyDataGridViewTextBoxColumn.Name = "vocabularyDataGridViewTextBoxColumn";
-            // 
-            // addDateTimeDataGridViewTextBoxColumn
-            // 
-            this.addDateTimeDataGridViewTextBoxColumn.DataPropertyName = "AddDateTime";
-            this.addDateTimeDataGridViewTextBoxColumn.HeaderText = "加入時間";
-            this.addDateTimeDataGridViewTextBoxColumn.Name = "addDateTimeDataGridViewTextBoxColumn";
-            // 
-            // chineseExplanationDataGridViewTextBoxColumn
-            // 
-            this.chineseExplanationDataGridViewTextBoxColumn.DataPropertyName = "ChineseExplanation";
-            this.chineseExplanationDataGridViewTextBoxColumn.HeaderText = "中文解釋";
-            this.chineseExplanationDataGridViewTextBoxColumn.Name = "chineseExplanationDataGridViewTextBoxColumn";
-            // 
-            // englishExplanationDataGridViewTextBoxColumn
-            // 
-            this.englishExplanationDataGridViewTextBoxColumn.DataPropertyName = "EnglishExplanation";
-            this.englishExplanationDataGridViewTextBoxColumn.HeaderText = "英文解釋";
-            this.englishExplanationDataGridViewTextBoxColumn.Name = "englishExplanationDataGridViewTextBoxColumn";
-            // 
-            // exampleDataGridViewTextBoxColumn
-            // 
-            this.exampleDataGridViewTextBoxColumn.DataPropertyName = "Example";
-            this.exampleDataGridViewTextBoxColumn.HeaderText = "例句";
-            this.exampleDataGridViewTextBoxColumn.Name = "exampleDataGridViewTextBoxColumn";
-            // 
-            // chineseExampleDataGridViewTextBoxColumn
-            // 
-            this.chineseExampleDataGridViewTextBoxColumn.DataPropertyName = "ChineseExample";
-            this.chineseExampleDataGridViewTextBoxColumn.HeaderText = "例句中文解釋";
-            this.chineseExampleDataGridViewTextBoxColumn.Name = "chineseExampleDataGridViewTextBoxColumn";
-            // 
-            // correctTimesDataGridViewTextBoxColumn
-            // 
-            this.correctTimesDataGridViewTextBoxColumn.DataPropertyName = "CorrectTimes";
-            this.correctTimesDataGridViewTextBoxColumn.HeaderText = "答對次數";
-            this.correctTimesDataGridViewTextBoxColumn.Name = "correctTimesDataGridViewTextBoxColumn";
-            // 
-            // guessTimesDataGridViewTextBoxColumn
-            // 
-            this.guessTimesDataGridViewTextBoxColumn.DataPropertyName = "GuessTimes";
-            this.guessTimesDataGridViewTextBoxColumn.HeaderText = "猜測次數";
-            this.guessTimesDataGridViewTextBoxColumn.Name = "guessTimesDataGridViewTextBoxColumn";
-            // 
-            // correctPercentageDataGridViewTextBoxColumn
-            // 
-            this.correctPercentageDataGridViewTextBoxColumn.DataPropertyName = "CorrectPercentage";
-            this.correctPercentageDataGridViewTextBoxColumn.HeaderText = "正確率";
-            this.correctPercentageDataGridViewTextBoxColumn.Name = "correctPercentageDataGridViewTextBoxColumn";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "備註";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -920,6 +835,7 @@
             this._tabPageViewVocabularies.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewVocabularies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceVocabularyList)).EndInit();
             this.panel1.ResumeLayout(false);
             this._tabPageAddVocabulary.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -979,7 +895,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox _textBoxVocabularyFilter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource _bindingSourceVocabularyList;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn vocabularyDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn addDateTimeDataGridViewTextBoxColumn1;

@@ -9,12 +9,28 @@ public class VocabularyData
     private DateTime _addDateTime;
     private String _chineseExplanation;
     private String _englishExplanation;
-    private String _example;
+    private String _englishExample;
     private String _chineseExample;
     private int _correctTimes;
     private int _guessTimes;
     private int _correctPercentage;
     private String _comment;
+
+    public VocabularyData()
+    {
+        // TODO: Complete member initialization
+    }
+
+    public VocabularyData(string vocabulary, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
+    {
+        // TODO: Complete member initialization
+        _vocabulary = vocabulary;
+        _englishExplanation = englishExplanation;
+        _chineseExplanation = chineseExplanation;
+        _englishExample = englishExample;
+        _chineseExample = chineseExample;
+        _comment = comment;
+    }
 
     [DisplayName("½s¸¹")]
     public int Id
@@ -81,16 +97,16 @@ public class VocabularyData
         }
     }
 
-    [DisplayName("¨Ò¥y")]
-    public String Example
+    [DisplayName("­^¤å¨Ò¥y")]
+    public String EnglishExample
     {
         get
         {
-            return _example;
+            return _englishExample;
         }
         set
         {
-            _example = value;
+            _englishExample = value;
         }
     }
 
