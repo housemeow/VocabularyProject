@@ -13,7 +13,6 @@ namespace VocabularyProject
     {
         public Form1()
         {
-            
             InitializeComponent();
         }
     }
