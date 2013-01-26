@@ -111,7 +111,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewSelectVocabulary)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // _tabControlMainForm
@@ -205,11 +204,82 @@
             this._dataGridViewVocabularies.Size = new System.Drawing.Size(682, 252);
             this._dataGridViewVocabularies.TabIndex = 0;
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "編號";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // vocabularyDataGridViewTextBoxColumn1
+            // 
+            this.vocabularyDataGridViewTextBoxColumn1.DataPropertyName = "Vocabulary";
+            this.vocabularyDataGridViewTextBoxColumn1.HeaderText = "單字";
+            this.vocabularyDataGridViewTextBoxColumn1.Name = "vocabularyDataGridViewTextBoxColumn1";
+            // 
+            // addDateTimeDataGridViewTextBoxColumn1
+            // 
+            this.addDateTimeDataGridViewTextBoxColumn1.DataPropertyName = "AddDateTime";
+            this.addDateTimeDataGridViewTextBoxColumn1.HeaderText = "加入時間";
+            this.addDateTimeDataGridViewTextBoxColumn1.Name = "addDateTimeDataGridViewTextBoxColumn1";
+            // 
+            // chineseExplanationDataGridViewTextBoxColumn1
+            // 
+            this.chineseExplanationDataGridViewTextBoxColumn1.DataPropertyName = "ChineseExplanation";
+            this.chineseExplanationDataGridViewTextBoxColumn1.HeaderText = "中文解釋";
+            this.chineseExplanationDataGridViewTextBoxColumn1.Name = "chineseExplanationDataGridViewTextBoxColumn1";
+            // 
+            // englishExplanationDataGridViewTextBoxColumn1
+            // 
+            this.englishExplanationDataGridViewTextBoxColumn1.DataPropertyName = "EnglishExplanation";
+            this.englishExplanationDataGridViewTextBoxColumn1.HeaderText = "英文解釋";
+            this.englishExplanationDataGridViewTextBoxColumn1.Name = "englishExplanationDataGridViewTextBoxColumn1";
+            // 
+            // exampleDataGridViewTextBoxColumn1
+            // 
+            this.exampleDataGridViewTextBoxColumn1.DataPropertyName = "Example";
+            this.exampleDataGridViewTextBoxColumn1.HeaderText = "例句";
+            this.exampleDataGridViewTextBoxColumn1.Name = "exampleDataGridViewTextBoxColumn1";
+            // 
+            // chineseExampleDataGridViewTextBoxColumn1
+            // 
+            this.chineseExampleDataGridViewTextBoxColumn1.DataPropertyName = "ChineseExample";
+            this.chineseExampleDataGridViewTextBoxColumn1.HeaderText = "例句中文解釋";
+            this.chineseExampleDataGridViewTextBoxColumn1.Name = "chineseExampleDataGridViewTextBoxColumn1";
+            // 
+            // correctTimesDataGridViewTextBoxColumn1
+            // 
+            this.correctTimesDataGridViewTextBoxColumn1.DataPropertyName = "CorrectTimes";
+            this.correctTimesDataGridViewTextBoxColumn1.HeaderText = "答對次數";
+            this.correctTimesDataGridViewTextBoxColumn1.Name = "correctTimesDataGridViewTextBoxColumn1";
+            // 
+            // guessTimesDataGridViewTextBoxColumn1
+            // 
+            this.guessTimesDataGridViewTextBoxColumn1.DataPropertyName = "GuessTimes";
+            this.guessTimesDataGridViewTextBoxColumn1.HeaderText = "猜測次數";
+            this.guessTimesDataGridViewTextBoxColumn1.Name = "guessTimesDataGridViewTextBoxColumn1";
+            // 
+            // correctPercentageDataGridViewTextBoxColumn1
+            // 
+            this.correctPercentageDataGridViewTextBoxColumn1.DataPropertyName = "CorrectPercentage";
+            this.correctPercentageDataGridViewTextBoxColumn1.HeaderText = "正確率";
+            this.correctPercentageDataGridViewTextBoxColumn1.Name = "correctPercentageDataGridViewTextBoxColumn1";
+            // 
+            // commentDataGridViewTextBoxColumn1
+            // 
+            this.commentDataGridViewTextBoxColumn1.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn1.HeaderText = "備註";
+            this.commentDataGridViewTextBoxColumn1.Name = "commentDataGridViewTextBoxColumn1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(VocabularyData);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this._buttonDelete);
             this.panel1.Controls.Add(this._buttonModify);
             this.panel1.Controls.Add(this._buttonCancel);
+
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 261);
             this.panel1.Name = "panel1";
@@ -861,7 +931,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewSelectVocabulary)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
