@@ -65,6 +65,7 @@ public class InsertPage : PresentationModel
         _vocabularyModel.AddVocabulary(vocabulary, dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
         ClearTextBoxes();
         UpdateView();
+        _vocabularyModel.ChangeModel();
     }
 
     private void ClearTextBoxes()

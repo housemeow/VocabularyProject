@@ -15,7 +15,6 @@ public class VocabularyData
     private int _guessTimes;
     private int _correctPercentage;
     private String _comment;
-    private DateTime dateTime;
 
     public VocabularyData()
     {

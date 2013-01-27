@@ -13,16 +13,31 @@ namespace VocabularyProject
     {
         VocabularyModel _vocabularyModel;
         InsertPage _insertPage;
-        List<VocabularyData> _vocabularyDataList;
+        ListPage _listPage;
 
         public Form1()
         {
             InitializeComponent();
             _vocabularyModel = new VocabularyModel();
             _insertPage = new InsertPage(_vocabularyModel);
-            _insertPage._modelChange += UpdateInsertPageView;
-            _vocabularyDataList = _vocabularyModel.GetVocabularyList();
-            _bindingSourceVocabularyList.DataSource = _vocabularyDataList;
+            _insertPage.ViewChanged += UpdateInsertPageView;
+            _listPage = new ListPage(_vocabularyModel);
+            _listPage.ViewChanged += UpdateListPageView;
+            _vocabularyModel.ModelChanged += ChangeModel;
+            _dataGridViewVocabularies.AutoGenerateColumns = true;
+            _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
+        }
+
+        private void UpdateListPageView()
+        {
+            _buttonDelete.Enabled = _listPage.IsDeleteButtonEnabled;
+            _buttonModify.Enabled = _listPage.IsModifyButtonEnabled;
+            _buttonCancel.Enabled = _listPage.IsCancelButtonEnabled;
+        }
+
+        private void ChangeModel()
+        {
+            _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
         }
 
         private void UpdateInsertPageView()
@@ -44,7 +59,7 @@ namespace VocabularyProject
             String englishExample = _textBoxAddEnglishExample.Text;
             String chineseExample = _textBoxAddChineseExample.Text;
             String comment = _textBoxAddComment.Text;
-            _insertPage.ClickAddSubmitButton(vocabulary,dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
+            _insertPage.ClickAddSubmitButton(vocabulary, dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
             _textBoxAddVocabulary.Focus();
         }
 
@@ -76,6 +91,78 @@ namespace VocabularyProject
         private void ChangeAddCommentTextBox(object sender, EventArgs e)
         {
             _insertPage.ChangeAddCommentTextBox(_textBoxAddComment.Text);
+        }
+
+        private void ClickModifyButton(object sender, EventArgs e)
+        {
+            _listPage.ClickModifyButton();
+        }
+
+        private void ClickDeleteButton(object sender, EventArgs e)
+        {
+            int rowIndex = _dataGridViewVocabularies.SelectedCells[0].RowIndex;
+            DataGridViewRow dataGridViewRow = _dataGridViewVocabularies.Rows[rowIndex];
+            VocabularyData vocabularyData = dataGridViewRow.DataBoundItem as VocabularyData;
+            String vocabularyDataDetails = GetVocabularyDetailString(vocabularyData);
+            if (MessageBox.Show(vocabularyDataDetails, "Do you want to Delete?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                _listPage.ClickDeleteButton();
+            }
+        }
+
+        private static string GetVocabularyDetailString(VocabularyData vocabularyData)
+        {
+            String vocabularyDataDetails = "";
+            vocabularyDataDetails += "編號" + vocabularyData.Id + "\n";
+            vocabularyDataDetails += "單字" + vocabularyData.Vocabulary + "\n";
+            vocabularyDataDetails += "加入時間" + vocabularyData.AddDateTime.ToShortDateString() + "\n";
+            vocabularyDataDetails += "中文解釋" + vocabularyData.ChineseExplanation + "\n";
+            vocabularyDataDetails += "英文解釋" + vocabularyData.EnglishExplanation + "\n";
+            vocabularyDataDetails += "英文例句" + vocabularyData.EnglishExample + "\n";
+            vocabularyDataDetails += "例句中文解釋" + vocabularyData.ChineseExample + "\n";
+            vocabularyDataDetails += "備註" + vocabularyData.Comment;
+            return vocabularyDataDetails;
+        }
+
+        private void ClickCancelButton(object sender, EventArgs e)
+        {
+            _listPage.ClickCancelButton();
+            ResetDataGridView();
+        }
+
+        private void ChangeVocabulariesDataGridViewCellValue(object sender, DataGridViewCellEventArgs e)
+        {
+            if (_listPage != null)
+            {
+                List<VocabularyData> vocabularyDataList = (List<VocabularyData>)_bindingSourceVocabularyList.DataSource;
+                _listPage.ChangeVocabulariesDataGridViewCellValue(vocabularyDataList);
+            }
+        }
+
+        private void ClickVocabulariesDataGridViewCell(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            if (rowIndex != -1)
+            {
+                int vocabularyId = (int)_dataGridViewVocabularies.Rows[rowIndex].Cells[0].Value;
+                List<VocabularyData> vocabularyDataList = (List<VocabularyData>)_bindingSourceVocabularyList.DataSource;
+                _listPage.ChangeVocabulariesDataGridViewSelection(vocabularyId, vocabularyDataList);
+            }
+        }
+
+        private void ResetDataGridView()
+        {
+            _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
+        }
+
+        private void LeaveViewVocabulariesTabPage(object sender, EventArgs e)
+        {
+            if (_listPage.IsModifyButtonEnabled)
+            {
+                MessageBox.Show("已取消您做的任何修改，如果需要修改下次請按Modify按鈕。", "Notify");
+                _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
+                _listPage.Initialize();
+            }
         }
     }
 }

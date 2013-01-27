@@ -1,13 +1,13 @@
 public class PresentationModel
 {
-    public delegate void ModelChangedHandler();
-    public event ModelChangedHandler _modelChange;
+    public delegate void ViewChangedEventHandler();
+    public event ViewChangedEventHandler ViewChanged;
 
     public void UpdateView()
     {
-        if (_modelChange != null)
+        if (ViewChanged != null)
         {
-            _modelChange();
+            ViewChanged();
         }
     }
 
