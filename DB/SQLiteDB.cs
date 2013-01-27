@@ -21,7 +21,7 @@ public class SQLiteDB
                 con.Open();
                 DbCommand cmd = con.CreateCommand();
                 const String CREATE_COMMAND = "create table VocabularyData(" +
-                    "id INTEGER, vocabulary TEXT, addDateTime TEXT, " +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, vocabulary TEXT, addDateTime TEXT, " +
                     "englishExplanation TEXT, chineseExplanation TEXT, " +
                     "englishExample TEXT, chineseExample TEXT, " +
                     "correctTimes INTEGER, guessTimes INTEGER, comment TEXT);";
@@ -43,7 +43,6 @@ public class SQLiteDB
         {
             using (DbConnection dbConnection = SQLiteConnectionBuilder.GetDbConnection())
             {//
-                int id = vocabularyData.Id;
                 String vocabulary = vocabularyData.Vocabulary;
                 String addDateTimeString = vocabularyData.AddDateTime.ToString(DATETIME_FORMAT);
                 String chineseExplanation = vocabularyData.ChineseExplanation;
@@ -55,11 +54,11 @@ public class SQLiteDB
                 String comment = vocabularyData.Comment;
 
                 String insertCommand = "insert into VocabularyData(" +
-                    "id, vocabulary, addDateTime, " +
+                    "vocabulary, addDateTime, " +
                     "chineseExplanation, englishExplanation," +
                     "englishExample, chineseExample, " +
-                    "correctTimes, guessTimes, comment) values(" +
-                    id + ",'" + vocabulary + "','" + addDateTimeString + "', '" +
+                    "correctTimes, guessTimes, comment) values('" + 
+                    vocabulary + "','" + addDateTimeString + "', '" +
                     chineseExplanation + "', '" + englishExplanation + "', '" +
                     englishExample + "', '" + chineseExample + "', " +
                     correctTimes + ", " + guessTimes + ", '" + comment + "');";

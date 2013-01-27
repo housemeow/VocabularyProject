@@ -78,5 +78,7 @@ namespace SQLiteCon
                 _weight = value;
             }
         }
+
+        public int SID { get; set; }
     }
 }

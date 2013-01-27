@@ -19,7 +19,7 @@ namespace SQLiteCon
                 {
                     con.Open();
                     DbCommand cmd = con.CreateCommand();
-                    const String CREATE_COMMAND = "create table Student(id TEXT, name TEXT, birthday TEXT, height REAL, weight INTEGER);";
+                    const String CREATE_COMMAND = "create table Student(sid INTEGER primary key autoincrement, id TEXT, name TEXT, birthday TEXT, height REAL, weight INTEGER);";
                     cmd.CommandText = CREATE_COMMAND;
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -82,11 +82,12 @@ namespace SQLiteCon
         private static Student GetStudent(DbDataReader reader)
         {
             Student student = new Student();
-            student.Id = reader.GetString(0);
-            student.Name = reader.GetString(1);
-            student.Birthday = reader.GetDateTime(2);
-            student.Height = reader.GetDouble(3);
-            student.Weight = reader.GetInt32(4);
+            student.SID = reader.GetInt32(0);
+            student.Id = reader.GetString(1);
+            student.Name = reader.GetString(2);
+            student.Birthday = reader.GetDateTime(3);
+            student.Height = reader.GetDouble(4);
+            student.Weight = reader.GetInt32(5);
             return student;
         }
 
