@@ -15,16 +15,18 @@ public class VocabularyData
     private int _guessTimes;
     private int _correctPercentage;
     private String _comment;
+    private DateTime dateTime;
 
     public VocabularyData()
     {
         // TODO: Complete member initialization
     }
 
-    public VocabularyData(string vocabulary, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
+    public VocabularyData(string vocabulary, DateTime dateTime, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
     {
         // TODO: Complete member initialization
         _vocabulary = vocabulary;
+        _addDateTime = dateTime;
         _englishExplanation = englishExplanation;
         _chineseExplanation = chineseExplanation;
         _englishExample = englishExample;

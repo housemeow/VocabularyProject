@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 public class VocabularyModel {
 	public List<VocabularyData> _vocabularyList ;
@@ -31,9 +32,9 @@ public class VocabularyModel {
     {
     }
 
-    internal void AddVocabulary(string vocabulary, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
+    internal void AddVocabulary(string vocabulary, DateTime dateTime, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
     {
-        VocabularyData vocabularyData = new VocabularyData(vocabulary, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
+        VocabularyData vocabularyData = new VocabularyData(vocabulary, dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
         _sqliteDB.InsertVocabularyData(vocabularyData);
     }
 }
