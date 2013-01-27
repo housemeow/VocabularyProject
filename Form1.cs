@@ -52,6 +52,7 @@ namespace VocabularyProject
             _textBoxAddChineseExample.Text = _insertPage.ChineseExample;
             _textBoxAddComment.Text = _insertPage.Comment;
             _buttonAddSubmit.Enabled = _insertPage.IsSubmitButtonEnabled;
+            _errorProvider.SetError(_buttonAddSubmit, _insertPage.ErrorMessage);
         }
 
         private void ClickAddSubmitButton(object sender, EventArgs e)
@@ -212,6 +213,8 @@ namespace VocabularyProject
             _textBoxModifyEnglishExample.Text = _editPage.EnglishExample;
             _textBoxModifyComment.Text = _editPage.Comment;
             _buttonModifySubmit.Enabled = _editPage.IsSubmitButtonEnabled;
+            _errorProvider.SetError(_buttonModifySubmit, _editPage.ErrorMessage);
+            _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
         }
 
         private void ClickSelectVocabularyDataGridViewCell(object sender, DataGridViewCellEventArgs e)
@@ -225,7 +228,7 @@ namespace VocabularyProject
             }
         }
 
-        private void _tabPageModifyVocabulary_Leave(object sender, EventArgs e)
+        private void LeaveModifyVocabularyTabPage(object sender, EventArgs e)
         {
             if (_editPage.IsSubmitButtonEnabled)
             {

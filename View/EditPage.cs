@@ -9,6 +9,7 @@ public class EditPage : PresentationModel
     private String _comment;
     private Boolean _isSubmitButtonEnabled;
     private VocabularyData _vocabularyData;
+    private String _errorMessage;
 
     public EditPage(VocabularyModel vocabularyModel)
         : base(vocabularyModel)
@@ -58,6 +59,11 @@ public class EditPage : PresentationModel
         get { return _isSubmitButtonEnabled; }
     }
 
+    public String ErrorMessage
+    {
+        get { return _errorMessage; }
+    }
+
     internal void ChangeModifyVocabularyTextBoxText(string vocabulary)
     {
         _vocabulary = vocabulary;
@@ -103,7 +109,6 @@ public class EditPage : PresentationModel
     internal void ClickModifySubmitButton()
     {
         UpdateVocabularyData();
-        Initialize();
         UpdateView();
     }
 
@@ -127,30 +132,31 @@ public class EditPage : PresentationModel
         _englishExample = String.Empty;
         _comment = String.Empty;
         _isSubmitButtonEnabled = false;
+        _errorMessage = String.Empty;
         UpdateView();
     }
 
     private void Validate()
     {
-        if (_vocabulary == String.Empty || (_chineseExplanation == String.Empty && _englishExplanation == String.Empty))
+        if (!IsModified())
         {
             _isSubmitButtonEnabled = false;
+            _errorMessage = "請至少修改一個欄位";
         }
-        else if (_vocabularyModel.IsExist(_vocabulary))
+        else if (_vocabularyData.Vocabulary!=_vocabulary && _vocabularyModel.IsExist(_vocabulary))
         {
             _isSubmitButtonEnabled = false;
+            _errorMessage = "有重複的單字存在";
+        }
+        else if (_vocabulary == String.Empty || (_chineseExplanation == String.Empty && _englishExplanation == String.Empty))
+        {
+            _isSubmitButtonEnabled = false;
+            _errorMessage = "單字不能為空白以及中文或英文至少要有一個解釋";
         }
         else
         {
-            if (IsModified())
-            {
-                _isSubmitButtonEnabled = true;
-
-            }
-            else
-            {
-                _isSubmitButtonEnabled = false;
-            }
+            _isSubmitButtonEnabled = true;
+            _errorMessage = "";
         }
     }
 

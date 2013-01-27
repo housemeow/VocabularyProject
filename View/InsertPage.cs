@@ -8,6 +8,7 @@ public class InsertPage : PresentationModel
     private string _chineseExample;
     private string _comment;
     private bool _isSubmitButtonEnabled;
+    private String _errorMessage;
 
     public bool IsSubmitButtonEnabled
     {
@@ -62,6 +63,11 @@ public class InsertPage : PresentationModel
         {
             return _comment;
         }
+    }
+
+    public String ErrorMessage
+    {
+        get { return _errorMessage; }
     }
 
     public InsertPage(VocabularyModel vocabularyModel)
@@ -126,16 +132,19 @@ public class InsertPage : PresentationModel
 
     private void Validate()
     {
-        if (_vocabulary == String.Empty || (_chineseExplanation == String.Empty && _englishExplanation == String.Empty))
+        if (_vocabularyModel.IsExist(_vocabulary))
         {
+            _errorMessage = "有重複的單字存在";
             _isSubmitButtonEnabled = false;
         }
-        else if (_vocabularyModel.IsExist(_vocabulary))
+        else if (_vocabulary == String.Empty || (_chineseExplanation == String.Empty && _englishExplanation == String.Empty))
         {
+            _errorMessage = "單字不能為空白以及中文或英文至少要有一個解釋";
             _isSubmitButtonEnabled = false;
         }
         else
         {
+            _errorMessage = "";
             _isSubmitButtonEnabled = true;
         }
     }

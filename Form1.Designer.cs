@@ -51,9 +51,10 @@
             this._textBoxAddChineseExplanation = new System.Windows.Forms.TextBox();
             this._textBoxAddEnglishExample = new System.Windows.Forms.TextBox();
             this._textBoxAddChineseExample = new System.Windows.Forms.TextBox();
-            this._buttonAddSubmit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this._textBoxAddComment = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this._buttonAddSubmit = new System.Windows.Forms.Button();
             this._tabPageModifyVocabulary = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,14 +68,16 @@
             this._textBoxModifyChineseExplanation = new System.Windows.Forms.TextBox();
             this._textBoxModifyEnglishExample = new System.Windows.Forms.TextBox();
             this._textBoxModifyChineseExample = new System.Windows.Forms.TextBox();
-            this._buttonModifySubmit = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this._textBoxModifyComment = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this._buttonModifySubmit = new System.Windows.Forms.Button();
             this._dataGridViewSelectVocabulary = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this._textBoxVocabularyFilter = new System.Windows.Forms.TextBox();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vocabularyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addDateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,11 +108,14 @@
             this.panel1.SuspendLayout();
             this._tabPageAddVocabulary.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this._tabPageModifyVocabulary.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewSelectVocabulary)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bindingSourceVocabularyList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -279,9 +285,9 @@
             this.tableLayoutPanel2.Controls.Add(this._textBoxAddChineseExplanation, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this._textBoxAddEnglishExample, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this._textBoxAddChineseExample, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this._buttonAddSubmit, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this._textBoxAddComment, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 6);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -410,21 +416,6 @@
             this._textBoxAddChineseExample.TabIndex = 4;
             this._textBoxAddChineseExample.TextChanged += new System.EventHandler(this.ChangeAddChineseExampleTextBox);
             // 
-            // _buttonAddSubmit
-            // 
-            this._buttonAddSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonAddSubmit.Enabled = false;
-            this._buttonAddSubmit.Location = new System.Drawing.Point(110, 328);
-            this._buttonAddSubmit.Margin = new System.Windows.Forms.Padding(10);
-            this._buttonAddSubmit.Name = "_buttonAddSubmit";
-            this._buttonAddSubmit.Size = new System.Drawing.Size(574, 37);
-            this._buttonAddSubmit.TabIndex = 6;
-            this._buttonAddSubmit.Text = "Submit";
-            this._buttonAddSubmit.UseVisualStyleBackColor = true;
-            this._buttonAddSubmit.Click += new System.EventHandler(this.ClickAddSubmitButton);
-            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -448,6 +439,29 @@
             this._textBoxAddComment.TabIndex = 5;
             this._textBoxAddComment.TextChanged += new System.EventHandler(this.ChangeAddCommentTextBox);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this._buttonAddSubmit);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(103, 321);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5, 5, 50, 5);
+            this.panel2.Size = new System.Drawing.Size(588, 51);
+            this.panel2.TabIndex = 12;
+            // 
+            // _buttonAddSubmit
+            // 
+            this._buttonAddSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._buttonAddSubmit.Enabled = false;
+            this._buttonAddSubmit.Location = new System.Drawing.Point(5, 5);
+            this._buttonAddSubmit.Margin = new System.Windows.Forms.Padding(10, 10, 11, 10);
+            this._buttonAddSubmit.Name = "_buttonAddSubmit";
+            this._buttonAddSubmit.Size = new System.Drawing.Size(533, 41);
+            this._buttonAddSubmit.TabIndex = 6;
+            this._buttonAddSubmit.Text = "Submit";
+            this._buttonAddSubmit.UseVisualStyleBackColor = true;
+            this._buttonAddSubmit.Click += new System.EventHandler(this.ClickAddSubmitButton);
+            // 
             // _tabPageModifyVocabulary
             // 
             this._tabPageModifyVocabulary.Controls.Add(this.tableLayoutPanel4);
@@ -457,7 +471,7 @@
             this._tabPageModifyVocabulary.TabIndex = 3;
             this._tabPageModifyVocabulary.Text = "Modify";
             this._tabPageModifyVocabulary.UseVisualStyleBackColor = true;
-            this._tabPageModifyVocabulary.Leave += new System.EventHandler(this._tabPageModifyVocabulary_Leave);
+            this._tabPageModifyVocabulary.Leave += new System.EventHandler(this.LeaveModifyVocabularyTabPage);
             // 
             // tableLayoutPanel4
             // 
@@ -492,9 +506,9 @@
             this.tableLayoutPanel3.Controls.Add(this._textBoxModifyChineseExplanation, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this._textBoxModifyEnglishExample, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this._textBoxModifyChineseExample, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this._buttonModifySubmit, 1, 6);
             this.tableLayoutPanel3.Controls.Add(this.label13, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this._textBoxModifyComment, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 6);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 195);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -622,17 +636,6 @@
             this._textBoxModifyChineseExample.TabIndex = 4;
             this._textBoxModifyChineseExample.TextChanged += new System.EventHandler(this.ChangeModifyChineseExampleTextBoxText);
             // 
-            // _buttonModifySubmit
-            // 
-            this._buttonModifySubmit.Enabled = false;
-            this._buttonModifySubmit.Location = new System.Drawing.Point(103, 147);
-            this._buttonModifySubmit.Name = "_buttonModifySubmit";
-            this._buttonModifySubmit.Size = new System.Drawing.Size(576, 24);
-            this._buttonModifySubmit.TabIndex = 6;
-            this._buttonModifySubmit.Text = "Submit";
-            this._buttonModifySubmit.UseVisualStyleBackColor = true;
-            this._buttonModifySubmit.Click += new System.EventHandler(this.ClickModifySubmitButton);
-            // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -655,6 +658,28 @@
             this._textBoxModifyComment.Size = new System.Drawing.Size(552, 18);
             this._textBoxModifyComment.TabIndex = 5;
             this._textBoxModifyComment.TextChanged += new System.EventHandler(this.ChangeModifyCommentTextBoxText);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this._buttonModifySubmit);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(103, 147);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.panel3.Size = new System.Drawing.Size(576, 24);
+            this.panel3.TabIndex = 12;
+            // 
+            // _buttonModifySubmit
+            // 
+            this._buttonModifySubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._buttonModifySubmit.Enabled = false;
+            this._buttonModifySubmit.Location = new System.Drawing.Point(0, 0);
+            this._buttonModifySubmit.Name = "_buttonModifySubmit";
+            this._buttonModifySubmit.Size = new System.Drawing.Size(526, 24);
+            this._buttonModifySubmit.TabIndex = 6;
+            this._buttonModifySubmit.Text = "Submit";
+            this._buttonModifySubmit.UseVisualStyleBackColor = true;
+            this._buttonModifySubmit.Click += new System.EventHandler(this.ClickModifySubmitButton);
             // 
             // _dataGridViewSelectVocabulary
             // 
@@ -679,6 +704,7 @@
             this._dataGridViewSelectVocabulary.Name = "_dataGridViewSelectVocabulary";
             this._dataGridViewSelectVocabulary.ReadOnly = true;
             this._dataGridViewSelectVocabulary.RowTemplate.Height = 24;
+            this._dataGridViewSelectVocabulary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._dataGridViewSelectVocabulary.Size = new System.Drawing.Size(682, 137);
             this._dataGridViewSelectVocabulary.TabIndex = 2;
             this._dataGridViewSelectVocabulary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickSelectVocabularyDataGridViewCell);
@@ -729,6 +755,10 @@
             this.tabPageConfiguration.TabIndex = 4;
             this.tabPageConfiguration.Text = "Configuration";
             this.tabPageConfiguration.UseVisualStyleBackColor = true;
+            // 
+            // _errorProvider
+            // 
+            this._errorProvider.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -892,13 +922,16 @@
             this._tabPageAddVocabulary.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this._tabPageModifyVocabulary.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewSelectVocabulary)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._bindingSourceVocabularyList)).EndInit();
             this.ResumeLayout(false);
 
@@ -976,6 +1009,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn guessTimesDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn correctPercentageDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ErrorProvider _errorProvider;
     }
 }
 
