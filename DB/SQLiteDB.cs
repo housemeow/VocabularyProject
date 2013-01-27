@@ -126,9 +126,8 @@ public class SQLiteDB
                     UPDATE table_name
                     SET column1=value, column2=value2,...
                     WHERE some_column=some_value
-
                   */
-                String deleteCommand = "UPDATE VocabularyData SET " +
+                String updateCommand = "UPDATE VocabularyData SET " +
                     "vocabulary='" + vocabulary + "', " +
                     "addDateTime='" + addDateTimeString + "', " +
                     "chineseExplanation='" + chineseExplanation + "', " +
@@ -142,7 +141,7 @@ public class SQLiteDB
 
                 dbConnection.Open();
                 DbCommand cmd = dbConnection.CreateCommand();
-                cmd.CommandText = deleteCommand;
+                cmd.CommandText = updateCommand;
                 cmd.ExecuteNonQuery();
                 //if you want to add another data, you have to do ExecuteNonQuery twice.
                 //cmd.CommandText = INSERT_COMMAND2;

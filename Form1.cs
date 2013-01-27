@@ -14,6 +14,7 @@ namespace VocabularyProject
         VocabularyModel _vocabularyModel;
         InsertPage _insertPage;
         ListPage _listPage;
+        EditPage _editPage;
 
         public Form1()
         {
@@ -23,6 +24,8 @@ namespace VocabularyProject
             _insertPage.ViewChanged += UpdateInsertPageView;
             _listPage = new ListPage(_vocabularyModel);
             _listPage.ViewChanged += UpdateListPageView;
+            _editPage = new EditPage(_vocabularyModel);
+            _editPage.ViewChanged += UpdateEditPage;
             _vocabularyModel.ModelChanged += ChangeModel;
             _dataGridViewVocabularies.AutoGenerateColumns = true;
             _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
@@ -162,6 +165,78 @@ namespace VocabularyProject
                 MessageBox.Show("已取消您做的任何修改，如果需要修改下次請按Modify按鈕。", "Notify");
                 _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
                 _listPage.Initialize();
+            }
+        }
+
+        private void ChangeVocabularyFilterTextBoxText(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangeModifyVocabularyTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyVocabularyTextBoxText(_textBoxModifyVocabulary.Text);
+        }
+
+        private void ChangeModifyEnglishExplanationTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyEnglishExplanationTextBoxText(_textBoxModifyEnglishExplanation.Text);
+        }
+
+        private void ChangeModifyChineseExplanationTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyChineseExplanationTextBoxText(_textBoxModifyChineseExplanation.Text);
+        }
+
+        private void ChangeModifyEnglishExampleTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyEnglishExampleTextBoxText(_textBoxModifyEnglishExample.Text);
+        }
+
+        private void ChangeModifyChineseExampleTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyChineseExampleTextBoxText(_textBoxModifyChineseExample.Text);
+        }
+
+        private void ChangeModifyCommentTextBoxText(object sender, EventArgs e)
+        {
+            _editPage.ChangeModifyCommentTextBoxText(_textBoxModifyComment.Text);
+        }
+
+        private void ClickModifySubmitButton(object sender, EventArgs e)
+        {
+            _editPage.ClickModifySubmitButton();
+        }
+
+        private void UpdateEditPage()
+        {
+            _textBoxModifyVocabulary.Text = _editPage.Vocabulary;
+            _textBoxModifyChineseExplanation.Text = _editPage.ChineseExplanation;
+            _textBoxModifyEnglishExplanation.Text = _editPage.EnglishExplanation;
+            _textBoxModifyChineseExample.Text = _editPage.ChineseExample;
+            _textBoxModifyEnglishExample.Text = _editPage.EnglishExample;
+            _textBoxModifyComment.Text = _editPage.Comment;
+            _buttonModifySubmit.Enabled = _editPage.IsSubmitButtonEnabled;
+        }
+
+        private void ClickSelectVocabularyDataGridViewCell(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = _dataGridViewSelectVocabulary.SelectedCells[0].RowIndex;
+            if (rowIndex != -1)
+            {
+                DataGridViewRow dataGridViewRow = _dataGridViewSelectVocabulary.Rows[rowIndex];
+                VocabularyData vocabularyData = dataGridViewRow.DataBoundItem as VocabularyData;
+                _editPage.ClickSelectVocabularyDataGridViewCell(vocabularyData);
+            }
+        }
+
+        private void _tabPageModifyVocabulary_Leave(object sender, EventArgs e)
+        {
+            if (_editPage.IsSubmitButtonEnabled)
+            {
+                MessageBox.Show("已取消您做的任何修改，如果需要修改下次請按Modify按鈕。", "Notify");
+                _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
+                _editPage.Initialize();
             }
         }
     }
