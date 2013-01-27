@@ -67,4 +67,9 @@ public class VocabularyModel
             UpdateVocabulary(vocabularyData);
         }
     }
+
+    internal bool IsExist(string _vocabulary)
+    {
+        return _sqliteDB.IsExist(_vocabulary);
+    }
 }

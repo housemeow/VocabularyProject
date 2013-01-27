@@ -51,18 +51,13 @@ namespace VocabularyProject
             _textBoxAddEnglishExample.Text = _insertPage.EnglishExample;
             _textBoxAddChineseExample.Text = _insertPage.ChineseExample;
             _textBoxAddComment.Text = _insertPage.Comment;
+            _buttonAddSubmit.Enabled = _insertPage.IsSubmitButtonEnabled;
         }
 
         private void ClickAddSubmitButton(object sender, EventArgs e)
         {
-            String vocabulary = _textBoxAddVocabulary.Text;
             DateTime dateTime = DateTime.Now;
-            String englishExplanation = _textBoxAddEnglishExplanation.Text;
-            String chineseExplanation = _textBoxAddChineseExplanation.Text;
-            String englishExample = _textBoxAddEnglishExample.Text;
-            String chineseExample = _textBoxAddChineseExample.Text;
-            String comment = _textBoxAddComment.Text;
-            _insertPage.ClickAddSubmitButton(vocabulary, dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
+            _insertPage.ClickAddSubmitButton(dateTime);
             _textBoxAddVocabulary.Focus();
         }
 

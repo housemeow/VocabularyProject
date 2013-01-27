@@ -230,4 +230,17 @@ public class SQLiteDB
         }
         return vocabularyList;
     }
+
+    internal bool IsExist(string vocabulary)
+    {
+        List<VocabularyData> vocabularyDataList = GetVocabularyList();
+        foreach (VocabularyData vocabularyData in vocabularyDataList)
+        {
+            if (vocabularyData.Vocabulary == vocabulary)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

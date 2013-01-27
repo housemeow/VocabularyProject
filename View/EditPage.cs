@@ -136,6 +136,10 @@ public class EditPage : PresentationModel
         {
             _isSubmitButtonEnabled = false;
         }
+        else if (_vocabularyModel.IsExist(_vocabulary))
+        {
+            _isSubmitButtonEnabled = false;
+        }
         else
         {
             if (IsModified())

@@ -415,6 +415,7 @@
             this._buttonAddSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._buttonAddSubmit.Enabled = false;
             this._buttonAddSubmit.Location = new System.Drawing.Point(110, 328);
             this._buttonAddSubmit.Margin = new System.Windows.Forms.Padding(10);
             this._buttonAddSubmit.Name = "_buttonAddSubmit";
