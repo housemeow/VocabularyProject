@@ -28,7 +28,9 @@ namespace VocabularyProject
             _editPage.ViewChanged += UpdateEditPage;
             _vocabularyModel.ModelChanged += ChangeModel;
             _dataGridViewVocabularies.AutoGenerateColumns = true;
+            _dataGridViewSelectVocabulary.AutoGenerateColumns = true;
             _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetVocabularyList();
         }
 
         private void UpdateListPageView()
@@ -60,6 +62,7 @@ namespace VocabularyProject
             DateTime dateTime = DateTime.Now;
             _insertPage.ClickAddSubmitButton(dateTime);
             _textBoxAddVocabulary.Focus();
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetFilteredVocabularyListByString(_textBoxVocabularyFilter.Text);
         }
 
         private void ChangeAddVocabularyTextBox(object sender, EventArgs e)
@@ -95,6 +98,7 @@ namespace VocabularyProject
         private void ClickModifyButton(object sender, EventArgs e)
         {
             _listPage.ClickModifyButton();
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetFilteredVocabularyListByString(_textBoxVocabularyFilter.Text);
         }
 
         private void ClickDeleteButton(object sender, EventArgs e)
@@ -107,6 +111,7 @@ namespace VocabularyProject
             {
                 _listPage.ClickDeleteButton();
             }
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetFilteredVocabularyListByString(_textBoxVocabularyFilter.Text);
         }
 
         private static string GetVocabularyDetailString(VocabularyData vocabularyData)
@@ -164,11 +169,6 @@ namespace VocabularyProject
             }
         }
 
-        private void ChangeVocabularyFilterTextBoxText(object sender, EventArgs e)
-        {
-
-        }
-
         private void ChangeModifyVocabularyTextBoxText(object sender, EventArgs e)
         {
             _editPage.ChangeModifyVocabularyTextBoxText(_textBoxModifyVocabulary.Text);
@@ -202,6 +202,7 @@ namespace VocabularyProject
         private void ClickModifySubmitButton(object sender, EventArgs e)
         {
             _editPage.ClickModifySubmitButton();
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetFilteredVocabularyListByString(_textBoxVocabularyFilter.Text);
         }
 
         private void UpdateEditPage()
@@ -214,7 +215,6 @@ namespace VocabularyProject
             _textBoxModifyComment.Text = _editPage.Comment;
             _buttonModifySubmit.Enabled = _editPage.IsSubmitButtonEnabled;
             _errorProvider.SetError(_buttonModifySubmit, _editPage.ErrorMessage);
-            _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
         }
 
         private void ClickSelectVocabularyDataGridViewCell(object sender, DataGridViewCellEventArgs e)
@@ -236,6 +236,12 @@ namespace VocabularyProject
                 _bindingSourceVocabularyList.DataSource = _vocabularyModel.GetVocabularyList();
                 _editPage.Initialize();
             }
+        }
+
+        private void ChangeModifyVocabularyFilterTextBoxText(object sender, EventArgs e)
+        {
+            _dataGridViewSelectVocabulary.DataSource = _vocabularyModel.GetFilteredVocabularyListByString(_textBoxVocabularyFilter.Text);
+            _editPage.Initialize();
         }
     }
 }
