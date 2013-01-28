@@ -34,6 +34,31 @@ public class VocabularyModel
         return vocabularyList;
     }
 
+    public List<VocabularyData> GetFilteredVocabularyListByString(string filterString)
+    {
+        List<VocabularyData> vocabularyList = this.GetVocabularyList();
+        List<VocabularyData> filteredVocabularyList = new List<VocabularyData>();
+        if (filterString == string.Empty)
+        {
+            return vocabularyList;
+        }
+        else
+        {
+            foreach (VocabularyData vocabularyData in vocabularyList)
+            {
+                if (vocabularyData.Vocabulary.Length >= filterString.Length)
+                {
+                    string subString = vocabularyData.Vocabulary.Substring(0, filterString.Length);
+                    if (subString.Equals(filterString))
+                    {
+                        filteredVocabularyList.Add(vocabularyData);
+                    }
+                }
+            }
+            return filteredVocabularyList;
+        }
+    }
+
     internal void AddVocabulary(string vocabulary, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample)
     {
     }
