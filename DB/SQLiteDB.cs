@@ -7,11 +7,17 @@ public class SQLiteDB
 {
     const String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
+    /// <summary>
+    /// Initialize database.
+    /// </summary>
     public void InitializeDB()
     {
         CreateTable();
     }
 
+    /// <summary>
+    /// Create VocabularyData table
+    /// </summary>
     public void CreateTable()
     {
         try
@@ -36,7 +42,10 @@ public class SQLiteDB
         }
     }
 
-
+    /// <summary>
+    /// Insert a vocabularyData
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     public void InsertVocabularyData(VocabularyData vocabularyData)
     {
         try
@@ -79,6 +88,11 @@ public class SQLiteDB
         }
     }
 
+    /// <summary>
+    /// Retrieve a vocabulary by id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public VocabularyData RetrieveVocabularyData(int id)
     {
         SQLiteConnection sqliteConnection = SQLiteConnectionBuilder.GetSQLiteConnection();
@@ -106,6 +120,10 @@ public class SQLiteDB
         return null;
     }
 
+    /// <summary>
+    /// Update a vocabulary which has a specified id.
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     public void UpdateVocabularyData(VocabularyData vocabularyData)
     {
         try
@@ -155,6 +173,10 @@ public class SQLiteDB
         }
     }
 
+    /// <summary>
+    /// Delete a vocabulary which has a specified id
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     public void DeleteVocabularyData(VocabularyData vocabularyData)
     {//DELETE FROM table_name WHERE some_column=some_value
         try
@@ -175,6 +197,12 @@ public class SQLiteDB
             System.Windows.Forms.MessageBox.Show(e.Message);
         }
     }
+
+    /// <summary>
+    /// Get a vocabularyData from database data type.
+    /// </summary>
+    /// <param name="reader"></param>
+    /// <returns></returns>
 
     private static VocabularyData GetVocabularyData(DbDataReader reader)
     {/*
@@ -203,6 +231,10 @@ public class SQLiteDB
         return vocabularyData;
     }
 
+    /// <summary>
+    /// Get all vocabularies from database.
+    /// </summary>
+    /// <returns></returns>
     public List<VocabularyData> GetVocabularyList()
     {
         List<VocabularyData> vocabularyList = new List<VocabularyData>();
@@ -231,6 +263,11 @@ public class SQLiteDB
         return vocabularyList;
     }
 
+    /// <summary>
+    /// Return true if the vocabulary is exist.
+    /// </summary>
+    /// <param name="vocabulary"></param>
+    /// <returns></returns>
     internal bool IsExist(string vocabulary)
     {
         List<VocabularyData> vocabularyDataList = GetVocabularyList();

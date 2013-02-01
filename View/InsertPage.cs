@@ -67,7 +67,10 @@ public class InsertPage : PresentationModel
 
     public String ErrorMessage
     {
-        get { return _errorMessage; }
+        get
+        {
+            return _errorMessage;
+        }
     }
 
     public InsertPage(VocabularyModel vocabularyModel)
@@ -76,6 +79,9 @@ public class InsertPage : PresentationModel
         ClearTextBoxes();
     }
 
+    /// <summary>
+    /// Clear all fields
+    /// </summary>
     private void ClearTextBoxes()
     {
         _vocabulary = "";
@@ -88,6 +94,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change vocabulary textbox text
+    /// </summary>
+    /// <param name="vocabulary"></param>
     internal void ChangeAddVocabularyTextBox(string vocabulary)
     {
         _vocabulary = vocabulary;
@@ -95,6 +105,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change english expalantion textbox
+    /// </summary>
+    /// <param name="englishExplanation"></param>
     internal void ChangeAddEnglishExplanationTextBox(string englishExplanation)
     {
         _englishExplanation = englishExplanation;
@@ -102,6 +116,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change chinese explanatnion textbox
+    /// </summary>
+    /// <param name="chineseExplanation"></param>
     internal void ChangeAddChineseExplanationTextBox(string chineseExplanation)
     {
         _chineseExplanation = chineseExplanation;
@@ -109,6 +127,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change english example textbox
+    /// </summary>
+    /// <param name="englishExample"></param>
     internal void ChangeAddEnglishExampleTextBox(string englishExample)
     {
         _englishExample = englishExample;
@@ -116,6 +138,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change chinese exmaple textbox
+    /// </summary>
+    /// <param name="chineseExample"></param>
     internal void ChangeAddChineseExampleTextBox(string chineseExample)
     {
         _chineseExample = chineseExample;
@@ -123,6 +149,10 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change comment textbox
+    /// </summary>
+    /// <param name="comment"></param>
     internal void ChangeAddCommentTextBox(string comment)
     {
         _comment = comment;
@@ -130,6 +160,9 @@ public class InsertPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// validate all fields and set error message
+    /// </summary>
     private void Validate()
     {
         if (_vocabularyModel.IsExist(_vocabulary))
@@ -149,6 +182,10 @@ public class InsertPage : PresentationModel
         }
     }
 
+    /// <summary>
+    /// click submit button
+    /// </summary>
+    /// <param name="dateTime"></param>
     internal void ClickAddSubmitButton(DateTime dateTime)
     {
         _vocabularyModel.AddVocabulary(_vocabulary, dateTime, _englishExplanation, _chineseExplanation, _englishExample, _chineseExample, _comment);

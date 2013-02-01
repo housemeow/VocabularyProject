@@ -33,6 +33,9 @@ public class ListPage : PresentationModel
         get { return _vocabularyDataList; }
     }
 
+    /// <summary>
+    /// click modify button
+    /// </summary>
     internal void ClickModifyButton()
     {
         _vocabularyModel.UpdateVocabularyDataList(_vocabularyDataList);
@@ -40,6 +43,12 @@ public class ListPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// set buttons enabled
+    /// </summary>
+    /// <param name="deleteButtonEnabled"></param>
+    /// <param name="modifyButtonEnabled"></param>
+    /// <param name="cancelButtonEnabled"></param>
     private void SetButtonEnabled(bool deleteButtonEnabled, bool modifyButtonEnabled, bool cancelButtonEnabled)
     {
         _isDeleteButtonEnabled = deleteButtonEnabled;
@@ -47,6 +56,9 @@ public class ListPage : PresentationModel
         _isCancelButtonEnabled = cancelButtonEnabled;
     }
 
+    /// <summary>
+    /// click delete button
+    /// </summary>
     internal void ClickDeleteButton()
     {
         _vocabularyModel.DeleteVocabularyData(_vocabularyId);
@@ -54,12 +66,20 @@ public class ListPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// click cancel button
+    /// </summary>
     internal void ClickCancelButton()
     {
         SetButtonEnabled(false, false, false);
         UpdateView();
     }
 
+    /// <summary>
+    /// change selected vocabulary
+    /// </summary>
+    /// <param name="vocabularyId"></param>
+    /// <param name="vocabularyDataList"></param>
     internal void ChangeVocabulariesDataGridViewSelection(int vocabularyId, List<VocabularyData> vocabularyDataList)
     {
         _vocabularyId = vocabularyId;
@@ -68,6 +88,10 @@ public class ListPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change vocabularyData
+    /// </summary>
+    /// <param name="vocabularyDataList"></param>
     internal void ChangeVocabulariesDataGridViewCellValue(List<VocabularyData> vocabularyDataList)
     {
         _vocabularyDataList = vocabularyDataList;
@@ -75,6 +99,9 @@ public class ListPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// initialize listpage view
+    /// </summary>
     internal void Initialize()
     {
         SetButtonEnabled(false, false, false);

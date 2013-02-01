@@ -64,6 +64,10 @@ public class EditPage : PresentationModel
         get { return _errorMessage; }
     }
 
+    /// <summary>
+    /// Change vocabulary textbox text
+    /// </summary>
+    /// <param name="vocabulary"></param>
     internal void ChangeModifyVocabularyTextBoxText(string vocabulary)
     {
         _vocabulary = vocabulary;
@@ -71,6 +75,10 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// Change english explanation textbox text
+    /// </summary>
+    /// <param name="englishExplanation"></param>
     internal void ChangeModifyEnglishExplanationTextBoxText(string englishExplanation)
     {
         _englishExplanation = englishExplanation;
@@ -78,6 +86,10 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change chinese explanation textbox text
+    /// </summary>
+    /// <param name="chineseExplanation"></param>
     internal void ChangeModifyChineseExplanationTextBoxText(string chineseExplanation)
     {
         _chineseExplanation = chineseExplanation;
@@ -85,6 +97,10 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change english example textbox text
+    /// </summary>
+    /// <param name="englishExample"></param>
     internal void ChangeModifyEnglishExampleTextBoxText(string englishExample)
     {
         _englishExample = englishExample;
@@ -92,6 +108,10 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change chinese example textbox text
+    /// </summary>
+    /// <param name="chineseExample"></param>
     internal void ChangeModifyChineseExampleTextBoxText(string chineseExample)
     {
         _chineseExample = chineseExample;
@@ -99,6 +119,10 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// change comment textbox text
+    /// </summary>
+    /// <param name="comment"></param>
     internal void ChangeModifyCommentTextBoxText(string comment)
     {
         _comment = comment;
@@ -106,12 +130,18 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// click submit button
+    /// </summary>
     internal void ClickModifySubmitButton()
     {
         UpdateVocabularyData();
         UpdateView();
     }
 
+    /// <summary>
+    /// update vocabulary data
+    /// </summary>
     private void UpdateVocabularyData()
     {
         _vocabularyData.Vocabulary = _vocabulary;
@@ -123,6 +153,9 @@ public class EditPage : PresentationModel
         _vocabularyModel.UpdateVocabulary(_vocabularyData);
     }
 
+    /// <summary>
+    /// initialize edit page
+    /// </summary>
     public void Initialize()
     {
         _vocabulary = String.Empty;
@@ -136,6 +169,9 @@ public class EditPage : PresentationModel
         UpdateView();
     }
 
+    /// <summary>
+    /// validate all field and set the error message.
+    /// </summary>
     private void Validate()
     {
         if (!IsModified())
@@ -160,6 +196,10 @@ public class EditPage : PresentationModel
         }
     }
 
+    /// <summary>
+    /// Return true if vocabularyData is distinct from fields
+    /// </summary>
+    /// <returns></returns>
     private bool IsModified()
     {
         if (_vocabularyData.Vocabulary != _vocabulary)
@@ -192,6 +232,10 @@ public class EditPage : PresentationModel
         }
     }
 
+    /// <summary>
+    /// Set vocabulary and fields
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     internal void ClickSelectVocabularyDataGridViewCell(VocabularyData vocabularyData)
     {
         _vocabularyData = vocabularyData;

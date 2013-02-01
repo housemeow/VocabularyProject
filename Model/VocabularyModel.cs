@@ -13,27 +13,38 @@ public class VocabularyModel
         _sqliteDB.InitializeDB();
     }
 
-    //public void AddVocabulary(VocabularyData vocabularyData){
-    //    _sqliteDB.InsertVocabularyData(vocabularyData);
-    //}
-
+    /// <summary>
+    /// Update a vocabularyData which has specified id.
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     public void UpdateVocabulary(VocabularyData vocabularyData)
     {
         _sqliteDB.UpdateVocabularyData(vocabularyData);
     }
 
+    /// <summary>
+    /// Delete a vocabularyData which has specified id.
+    /// </summary>
+    /// <param name="vocabularyData"></param>
     public void DeleteVocabulary(VocabularyData vocabularyData)
     {
         _sqliteDB.DeleteVocabularyData(vocabularyData);
     }
 
+    /// <summary>
+    /// Get all vocabularies.
+    /// </summary>
+    /// <returns></returns>
     public List<VocabularyData> GetVocabularyList()
     {
-        List<VocabularyData> vocabularyList;
-        vocabularyList = _sqliteDB.GetVocabularyList();
-        return vocabularyList;
+        return _sqliteDB.GetVocabularyList();;
     }
 
+    /// <summary>
+    /// Get vocabularies which contain filterString.
+    /// </summary>
+    /// <param name="filterString"></param>
+    /// <returns></returns>
     public List<VocabularyData> GetFilteredVocabularyListByString(string filterString)
     {
         List<VocabularyData> vocabularyList = this.GetVocabularyList();
@@ -59,16 +70,25 @@ public class VocabularyModel
         }
     }
 
-    internal void AddVocabulary(string vocabulary, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample)
-    {
-    }
-
+    /// <summary>
+    /// Add vocabularyData.
+    /// </summary>
+    /// <param name="vocabulary"></param>
+    /// <param name="dateTime"></param>
+    /// <param name="englishExplanation"></param>
+    /// <param name="chineseExplanation"></param>
+    /// <param name="englishExample"></param>
+    /// <param name="chineseExample"></param>
+    /// <param name="comment"></param>
     internal void AddVocabulary(string vocabulary, DateTime dateTime, string englishExplanation, string chineseExplanation, string englishExample, string chineseExample, string comment)
     {
         VocabularyData vocabularyData = new VocabularyData(vocabulary, dateTime, englishExplanation, chineseExplanation, englishExample, chineseExample, comment);
         _sqliteDB.InsertVocabularyData(vocabularyData);
     }
 
+    /// <summary>
+    /// Trigger all event handler.
+    /// </summary>
     internal void ChangeModel()
     {
         if (ModelChanged != null)
@@ -77,14 +97,22 @@ public class VocabularyModel
         }
     }
 
-    internal void DeleteVocabularyData(int vocabularyId)
+    /// <summary>
+    /// Delete vocabularyData which has specified id.
+    /// </summary>
+    /// <param name="id"></param>
+    internal void DeleteVocabularyData(int id)
     {
         VocabularyData vocabularyData =  new VocabularyData();
-        vocabularyData.Id = vocabularyId;
+        vocabularyData.Id = id;
         _sqliteDB.DeleteVocabularyData(vocabularyData);
         ChangeModel();
     }
 
+    /// <summary>
+    /// Update all vocabularies which has specified id.
+    /// </summary>
+    /// <param name="vocabularyDataList"></param>
     internal void UpdateVocabularyDataList(List<VocabularyData> vocabularyDataList)
     {
         foreach (VocabularyData vocabularyData in vocabularyDataList)
@@ -93,8 +121,13 @@ public class VocabularyModel
         }
     }
 
-    internal bool IsExist(string _vocabulary)
+    /// <summary>
+    /// Return true if the vocabulary is exist.
+    /// </summary>
+    /// <param name="vocabulary"></param>
+    /// <returns></returns>
+    internal bool IsExist(string vocabulary)
     {
-        return _sqliteDB.IsExist(_vocabulary);
+        return _sqliteDB.IsExist(vocabulary);
     }
 }
